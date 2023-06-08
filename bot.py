@@ -5,6 +5,7 @@ from aiogram import Bot, Dispatcher
 
 
 async def main():
+    logging.basicConfig(level=logging.INFO)
 
 
 
