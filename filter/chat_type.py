@@ -1,6 +1,6 @@
 from typing import Union
 
-from aiogram.filters import BaseFilter
+from aiogram.filters import BaseFilter, Filter
 from aiogram.types import Message
 
 
@@ -13,3 +13,16 @@ class ChatTypeFilter(BaseFilter):
             return message.chat.type == self.chat_type
         else:
             return message.chat.type in self.chat_type
+
+
+# class ChatTypeFilter2(Filter):
+#     def __init__(self, is_group: Bool):
+#         self.is_group = is_group
+#
+#     async def __call__(self, message: Message) -> bool:
+#         if message.chat.type == 'group':
+#             return True
+#         elif message.chat.type == 'supergroup':
+#             return True
+#         else
+

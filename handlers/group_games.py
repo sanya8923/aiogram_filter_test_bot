@@ -3,7 +3,7 @@ from aiogram.enums.dice_emoji import DiceEmoji
 from aiogram.types.message import Message
 from aiogram.filters.command import Command
 
-from filters.chat_type import ChatTypeFilter
+from filter.chat_type import ChatTypeFilter
 
 
 router = Router()
