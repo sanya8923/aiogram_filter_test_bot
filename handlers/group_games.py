@@ -9,14 +9,28 @@ from filters.chat_type import ChatTypeFilter
 router = Router()
 
 
-@router.message(ChatTypeFilter(chat_type=['group', 'supergroup']),
-                commands=['dice'])
+# @router.message(ChatTypeFilter(chat_type=['group', 'supergroup']),
+#                 Command(commands=['dice']))
+# async def cmd_dice_in_group(message: Message):
+#     await message.answer_dice(emoji=DiceEmoji.DICE)
+#
+#
+# @router.message(ChatTypeFilter(chat_type=['group', 'supergroup']),
+#                 Command(commands=['basketball']))
+# async def cmd_basketball_in_group(message: Message):
+#     await message.answer_dice(emoji=DiceEmoji.BASKETBALL)
+#
+#
+router.message.filter(ChatTypeFilter(chat_type=['group', 'supergroup']))
+
+
+@router.message(Command('dice'))
 async def cmd_dice_in_group(message: Message):
     await message.answer_dice(emoji=DiceEmoji.DICE)
 
 
-@router.message(ChatTypeFilter(chat_type=['group', 'supergroup']),
-                commands=['basketball'])
+@router.message(Command('basketball'))
 async def cmd_basketball_in_group(message: Message):
     await message.answer_dice(emoji=DiceEmoji.BASKETBALL)
+
 
