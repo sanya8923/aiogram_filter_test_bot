@@ -4,7 +4,7 @@ import asyncio
 import config_reader
 from aiogram import Bot, Dispatcher
 
-from handlers import group_games
+from handlers import group_games, usernames
 
 
 async def main():
@@ -12,7 +12,7 @@ async def main():
     bot = Bot(token=config_reader.config.bot_token.get_secret_value())
     dp = Dispatcher()
 
-    dp.include_routers(group_games.router)
+    dp.include_routers(group_games.router, usernames.router)
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
