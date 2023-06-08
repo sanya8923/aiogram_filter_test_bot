@@ -7,3 +7,6 @@ class Setting(BaseSettings):
     class Config:
         env_file = '.env'
         env_encoding = 'utf-8'
+
+
+config = Setting()
