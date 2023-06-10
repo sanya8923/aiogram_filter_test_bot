@@ -2,6 +2,7 @@ from typing import Union, Dict, Any
 
 from aiogram.filters import BaseFilter
 from aiogram.types import Message
+from test_func import TestFuncs
 
 
 class HasUsernamesFilter(BaseFilter):
@@ -12,6 +13,7 @@ class HasUsernamesFilter(BaseFilter):
             item.extract_from(message.text) for item in entities
             if item.type == "mention"
         ]
+        print(f'found_usernames: {found_usernames}')
 
         if len(found_usernames) > 0:
             return {"usernames": found_usernames}
